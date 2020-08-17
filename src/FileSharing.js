@@ -13,20 +13,19 @@ return (
     <form>
         <fieldset>
         <legend>File upload</legend>
-        <div class="row">
-            <div class="col">
             <label>Files </label>
             <input type="file" multiple/>
+            <div class="row">
+            <div class="col">
+                <label>Password </label>
+                <input type="password" placeholder="Password" />
+                <br />
+                <small>Password will be used to encrypt the paste.</small>
             </div>
             <div class="col">
-            <label>Password </label>
-            <input type="password" placeholder="Password"/>
-            <br/><small>Password will be used to encrypt the file(s).</small>
+                <button>Upload paste</button>
             </div>
-        </div>
-        <p>
-            <button>Upload files</button>
-        </p>
+            </div>
         </fieldset>
         </form>
     </div>
