@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
+import FileSharing from './FileSharing.js';
+import Pastebin from './Pastebin.js'
 
-function App() {
+export default function Menu() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/file_sharing">
+            <FileSharing />
+          </Route>
+          <Route path="/pastebin">
+            <Pastebin />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function Home() {
+  let history = useHistory();
+  return (
+    <div>
+      <h1>skycrypt</h1>
+      <p>Encrypted pastebin and file sharing for Skynet. For more information, please see <Link to="/help">How to use?</Link></p>
+      <div class="row">
+        <div class="col">
+          <button onClick={() => history.push('/file_sharing')}>File sharing</button>
+          <p>Encrypted file sharing with AES-256.</p>
+        </div>
+        <div class="col">
+          <button onClick={() => history.push('/pastebin')}>Pastebin</button>
+          <p>Same encryption with file sharing, however this one is a pastebin.</p>
+        </div>
+      </div>
+    </div>
+  );
+}
