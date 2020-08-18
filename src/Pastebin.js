@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-java";
@@ -6,10 +6,16 @@ import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 
-class App extends React.Component {
-render() {
+function App() {    
+    const [paste, setPaste] = useState('');
+    const [password, setPassword] = useState('');
+    function uploadPaste() {
+        var CryptoJS = require("crypto-js");
+        var ciphertext = CryptoJS.AES.encrypt(paste, password).toString();
+        console.log(ciphertext);
+    }
     function onChange(newValue) {
-        console.log("change", newValue);
+        setPaste(newValue)
         }
     return (
     <div>
@@ -37,19 +43,18 @@ render() {
             <div class="row">
             <div class="col">
                 <label>Password </label>
-                <input type="password" placeholder="Password" />
+                <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                 <br />
                 <small>Password will be used to encrypt the paste.</small>
             </div>
             <div class="col">
-                <button>Upload paste</button>
+                <button onClick={uploadPaste} href="#">Upload paste</button>
             </div>
             </div>
         </fieldset>
         </form>
     </div>
     );
-}
 }
 
 export default App;
