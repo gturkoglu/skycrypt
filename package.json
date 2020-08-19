@@ -7,15 +7,19 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "ace-builds": "^1.4.12",
+    "axios": "^0.19.2",
     "crypto-js": "^4.0.0",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-ace": "^9.1.3",
+    "react-alert": "^7.0.2",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-simple-code-editor": "^0.11.0",
-    "skynet-js": "^0.1.0"
+    "skynet-js": "^0.1.0",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

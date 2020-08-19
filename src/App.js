@@ -7,7 +7,7 @@ import {
   useHistory
 } from "react-router-dom";
 import FileSharing from './FileSharing.js';
-import Pastebin from './Pastebin.js'
+import Pastebin from './Pastebin.js';
 
 export default function Menu() {
   return (
