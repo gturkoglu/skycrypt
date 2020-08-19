@@ -34,7 +34,7 @@ function Home() {
   return (
     <div>
       <h1>skycrypt</h1>
-      <p>Encrypted pastebin and file sharing for Skynet. For more information, please see <Link to="/help">How to use?</Link></p>
+      <p>Encrypted pastebin and file sharing for Skynet.</p>
       <div class="row">
         <div class="col">
           <button onClick={() => history.push('/file_sharing')}>File sharing</button>

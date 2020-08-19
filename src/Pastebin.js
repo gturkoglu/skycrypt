@@ -15,7 +15,6 @@ function App() {
     function uploadPaste() {
         var CryptoJS = require("crypto-js");
         var ciphertext = CryptoJS.AES.encrypt(paste, password).toString();
-        console.log(ciphertext);
         uploadSkynet(ciphertext);
     }
     function onChange(newValue) {
@@ -57,7 +56,6 @@ function App() {
                     var bytes  = CryptoJS.AES.decrypt(ciphertext, document.getElementById("password").value);
                     var originalText = bytes.toString(CryptoJS.enc.Utf8);
                     if (originalText) {
-                        console.log(originalText);
                         document.getElementById("passwordForm").parentNode.removeChild(document.getElementById("passwordForm"));
                         document.getElementById("info").parentNode.removeChild(document.getElementById("info"));
                         document.getElementById("pasteContent").innerHTML = originalText;
@@ -71,7 +69,6 @@ function App() {
         ], {type: 'text/html'});
         var formData = new FormData();
         formData.append('file', blob);
-        console.log(formData);
         var paste_uuid = uuidv4();
         axios.post(
             `https://siasky.net/skynet/skyfile/${paste_uuid}?filename=paste.html`, 
