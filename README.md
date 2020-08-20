@@ -2,7 +2,7 @@
 
 Encrypted file sharing and pastebin on the Skynet.
 
-### Features
+### Features
 
 * AES256 encryption with `CryptoJS`.
 * Readable client code for decryption.
